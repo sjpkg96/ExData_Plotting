@@ -23,5 +23,3 @@ hist(powerData[, Global_active_power], main="Global Active Power",
      xlab="Global Active Power ( in kilowatts)", ylab="Frequency", col="Red")
 
 dev.off()
-# Plot 1
-plot(powerData[, dateTime], powerDT[, Global_active_power], type="l", xlab="", ylab="Global Active Power")
