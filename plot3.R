@@ -18,9 +18,9 @@ powerData <- powerData[(dateTime >= "2007-02-01") & (dateTime < "2007-02-03")]
 png("plot3.png", width=480, height=480)
 
 # Plot 3
-plot(powerData[, dateTime], powerDT[, Sub_metering_1], type="l", xlab="", ylab="Energy sub metering")
-lines(powerData[, dateTime], powerDT[, Sub_metering_2],col="red")
-lines(powerData[, dateTime], powerDT[, Sub_metering_3],col="blue")
+plot(powerData[, dateTime], powerData[, Sub_metering_1], type="l", xlab="", ylab="Energy sub metering")
+lines(powerData[, dateTime], powerData[, Sub_metering_2],col="red")
+lines(powerData[, dateTime], powerData[, Sub_metering_3],col="blue")
 legend("topright"
        , col=c("black","red","blue")
        , c("Sub_metering_1  ","Sub_metering_2  ", "Sub_metering_3  ")
