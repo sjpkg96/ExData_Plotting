@@ -24,3 +24,5 @@ plot(x = powerData[, dateTime]
      , type="l", xlab="", ylab="Global Active Power (kilowatts)")
 
 dev.off()
+# Plot 2
+plot(powerData[, dateTime],powerDT[, Voltage], type="l", xlab="datetime", ylab="Voltage")
