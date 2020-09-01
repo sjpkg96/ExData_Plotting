@@ -1,0 +1,27 @@
+library("data.table")
+getwd()
+setwd("C:/Users/Dell/Desktop/AS2017373/peerdata")
+
+#Reading the data from file & subsets data for specified dates
+powerData <- data.table::fread(input = "household_power_consumption.txt"
+                             , na.strings="?"
+)
+
+# creating histogram from printing in scientific notation
+powerData[, Global_active_power := lapply(.SD, as.numeric), .SDcols = c("Global_active_power")]
+
+# Changing Date Column in to Date Type
+powerData[, Date := lapply(.SD, as.Date, "%d/%m/%Y"), .SDcols = c("Date")]
+
+# Filter the Dates for 2007-02-01 and 2007-02-02
+powerData <- powerData[(Date >= "2007-02-01") & (Date <= "2007-02-02")]
+
+png("plot1.png", width=480, height=480)
+
+## Plot 1
+hist(powerData[, Global_active_power], main="Global Active Power", 
+     xlab="Global Active Power ( in kilowatts)", ylab="Frequency", col="Red")
+
+dev.off()
+# Plot 1
+plot(powerData[, dateTime], powerDT[, Global_active_power], type="l", xlab="", ylab="Global Active Power")
